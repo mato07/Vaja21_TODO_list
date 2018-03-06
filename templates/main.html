@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Task Manager Program
+{% endblock title %}
+
+{% block vsebina %}
+    <form method="post" action="/rezultat">
+        <label for = "task">Vnesi nalogo: </label><br>
+        <textarea rows="4" cols="50" id="task" type="text" name="vpisano"></textarea><br>
+        <label for = "danid">Rok za nalogo: </label><br>
+        <input id="danid" type="number" name="dan" placeholder="DD" max="31" min="1">.
+        <input type="number" name="mesec" placeholder="MM" max="12" min="1">.
+        <input type="number" name="leto" placeholder="YYYY"><br>
+        <button type="submit">Shrani</button>
+    </form>
+{% endblock vsebina %}

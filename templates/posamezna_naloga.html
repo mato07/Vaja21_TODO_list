@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Posamezna Naloga
+{% endblock title %}
+
+{% block vsebina %}
+    <h2>Naloga</h2>
+    <p>Opis naloge: {{ posamezno_sporocilce.besedilo }} <br>
+    Rok za dokočanje naloge: {{ posamezno_sporocilce.rok }} <br>
+    Naloga je bila vpisana: {{ posamezno_sporocilce.nastanek }} <br></p>
+    {% if posamezno_sporocilce.narejeno == False %}
+    <a href="/naloga/{{ posamezno_sporocilce.key.id() }}/uredi"><button>Uredi</button></a>
+    <a href="/naloga/{{ posamezno_sporocilce.key.id() }}/opravljeno"><button>Označi za opravljeno</button></a>
+    <a href="/naloga/{{ posamezno_sporocilce.key.id() }}/izbrisano"><button>Izbriši</button></a>
+    {% else %}
+    <a href="/naloga/{{ posamezno_sporocilce.key.id() }}/izbrisano"><button>Izbriši</button></a><br><br>
+    {% endif %}
+{% endblock vsebina %}

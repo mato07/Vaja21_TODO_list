@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Posamezna Naloga
+{% endblock title %}
+
+{% block vsebina %}
+    <h2>Naloga</h2>
+    <form method="post">
+        <label for="opis">Opis naloge: </label><br>
+        <textarea rows="4" cols="50" id="opis" name="novo-besedilo" placeholder="{{ posamezno_sporocilce.besedilo }}"></textarea><br>
+        <label for="rok">Rok za dokočanje naloge: </label><br>
+        <input id="rok" name="nov-rok" type="text" placeholder="{{ posamezno_sporocilce.rok }}"><br><br>
+        <button type="submit">Shrani</button>
+    </form>
+{% endblock vsebina %}

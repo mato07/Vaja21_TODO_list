@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Izbrisana Naloga
+{% endblock title %}
+
+{% block vsebina %}
+    <h3>Ali res želiš izbrisati sledečo nalogo</h3>
+    <p>Opis naloge: {{ posamezno_sporocilce.besedilo }} <br>
+    Rok za dokočanje naloge: {{ posamezno_sporocilce.rok }} <br>
+    Naloga je bila vpisana: {{ posamezno_sporocilce.nastanek }} <br>
+    </p>
+    <form method="post">
+        <button type="submit">Da</button>
+    </form>
+        <a href="/seznam_neopravljenih"><button>Ne</button></a><br><br>
+{% endblock vsebina %}

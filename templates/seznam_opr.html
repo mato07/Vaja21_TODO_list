@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+Rezultat
+{% endblock title %}
+
+{% block vsebina %}
+    {% for naloga in seznam_opr %}
+        <p>Opis naloge: {{ naloga.besedilo }} <br>
+        Rok za dokočanje naloge: {{ naloga.rok }} <br>
+        Naloga je bila vpisana: {{ naloga.nastanek }} <br>
+        <a href="/naloga/{{naloga.key.id()}}">link</a> <br><br>
+        <a href="/naloga/{{ naloga.key.id() }}/izbrisano"><button>Izbriši</button></a></p>
+    {% endfor %}
+{% endblock vsebina %}
