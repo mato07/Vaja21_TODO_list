@@ -98,6 +98,24 @@ class List2Handler(BaseHandler):
         podatki = {"seznam_opr": seznam_opr}
         return self.render_template("seznam_opr.html", podatki)
 
+class NaslednjeHandler(BaseHandler):
+    def get(self):
+        seznam_neopr = TaskManager.query(TaskManager.izbrisano == False, TaskManager.narejeno == False).fetch()
+
+        nov_seznam=[]
+        for item in seznam_neopr:
+            cas = item.rok
+            cas2 = cas.split(".")
+            cas3 = cas2[2] + cas2[1] +cas2[0]
+            nov_seznam.append(cas3)
+            najblizji = min(nov_seznam)
+            indeksmin = nov_seznam.index(najblizji)
+
+        najblizje_opravilo = seznam_neopr[indeksmin]
+
+        podatki = {"najblizje_opravilo": najblizje_opravilo}
+        return self.render_template("naslednje_opravilo.html", podatki)
+
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
     webapp2.Route('/rezultat', RezultatHandler),
@@ -107,4 +125,5 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/naloga/<vnos_id:\d+>/opravljeno', OpraviHandler),
     webapp2.Route('/naloga/<vnos_id:\d+>/izbrisano', IzbrisiHandler),
     webapp2.Route('/seznam_opravljenih', List2Handler, name="seznam-opravljenih"),
+    webapp2.Route('/naslednje_opravilo', NaslednjeHandler),
 ], debug=True)

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+Naslednja Naloga
+{% endblock title %}
+
+{% block vsebina %}
+    <h2>Naloga z najbližjim rokom</h2>
+    <p>Opis naloge: {{ najblizje_opravilo.besedilo }} <br>
+    Rok za dokočanje naloge: {{ najblizje_opravilo.rok }} <br>
+    Naloga je bila vpisana: {{ najblizje_opravilo.nastanek }} <br></p>
+    <a href="/naloga/{{ najblizje_opravilo.key.id() }}/uredi"><button>Uredi</button></a>
+    <a href="/naloga/{{ najblizje_opravilo.key.id() }}/opravljeno"><button>Označi za opravljeno</button></a>
+    <a href="/naloga/{{ najblizje_opravilo.key.id() }}/izbrisano"><button>Izbriši</button></a><br><br>
+{% endblock vsebina %}

@@ -5,6 +5,7 @@ Rezultat
 {% endblock title %}
 
 {% block vsebina %}
+    <h2>Seznam neopravljenih nalog</h2>
     {% for naloga in seznam_neopr %}
         <p>Opis naloge: {{ naloga.besedilo }} <br>
         Rok za dokočanje naloge: {{ naloga.rok }} <br>
@@ -12,6 +13,8 @@ Rezultat
         <a href="/naloga/{{naloga.key.id()}}">link</a> <br><br>
         <a href="/naloga/{{ naloga.key.id() }}/uredi"><button>Uredi</button></a>
         <a href="/naloga/{{ naloga.key.id() }}/opravljeno"><button>Označi za opravljeno</button></a>
-        <a href="/naloga/{{ naloga.key.id() }}/izbrisano"><button>Izbriši</button></a></p>
+        <a href="/naloga/{{ naloga.key.id() }}/izbrisano"><button>Izbriši</button></a>
+        <a href="/naslednje_opravilo"><button>Naslednje opravilo</button></a></p>
+
     {% endfor %}
 {% endblock vsebina %}

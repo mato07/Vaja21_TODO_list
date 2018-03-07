@@ -5,6 +5,7 @@ Rezultat
 {% endblock title %}
 
 {% block vsebina %}
+        <h2>Seznam opravljenih nalog</h2>
     {% for naloga in seznam_opr %}
         <p>Opis naloge: {{ naloga.besedilo }} <br>
         Rok za dokočanje naloge: {{ naloga.rok }} <br>
